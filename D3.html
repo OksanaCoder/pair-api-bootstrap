@@ -9,12 +9,12 @@
 
         Starting from the current "base" bootstrap layout, implement the following exercises:
 
-        1) When pressing on Load Images button, load the pictures from http://www.splashbase.co/api/v1/images/search?query=your query
-        2) When pressing on Load Seconday Images, load the pictures from http://www.splashbase.co/api/v1/images/search?query=your secondary query
-        3) When the user clicks on the "VIEW" button inside the Card, the image must be shown in a Modal View
-        4) The Edit button should be replace with a "Hide" button. 
-        5) When the hide button is pressed, the whole picture card disappears.
-        6) Replace the "9 mins" template with the ID of the Image
+      +  1) When pressing on Load Images button, load the pictures from http://www.splashbase.co/api/v1/images/search?query=your query
+        2) When pressing on Load Seconday Images, load the pictures from http://www.splashbase.co/api/v1/images/search?query=your second btn-viewary query
+       + 3) When the user clicks on the "VIEW" btn-hide button inside the Card, the image must be shown in a Modal View
+        +4) The Edit button should be replace with a "Hide" button. 
+      +  5) When the hide button is pressed, the whole picture card disappears.
+       + 6) Replace the "9 mins" template with the ID of the Image
         
         [EXTRA]
         7) Add in the "jumbotron" a search field. If there is a value there and the user press "Load Seconday Image" the API call should use the specified query as query
@@ -41,13 +41,23 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
   <style>
+    .card-img-top {
+      background-color: red;
+      height: 200px;
+      object-fit: cover;
+    }
     .jumbotron {
       padding-top: 3rem;
       padding-bottom: 3rem;
       margin-bottom: 0;
       background-color: #fff;
     }
-
+    .img-modal {
+      background-color: red;
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
     @media (min-width: 768px) {
       .jumbotron {
         padding-top: 6rem;
@@ -114,6 +124,7 @@
               <li><a href="#" class="text-white">Like on Facebook</a></li>
               <li><a href="#" class="text-white">Email me</a></li>
             </ul>
+           
           </div>
         </div>
       </div>
@@ -122,7 +133,7 @@
       <div class="container d-flex justify-content-between">
         <a href="#" class="navbar-brand d-flex align-items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
+            stroke-linecap="round" stroke- btn-viewlinejoin="round" stroke-width="2" aria-hidden="true" class="mr-2"
             viewBox="0 0 24 24" focusable="false">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
             <circle cx="12" cy="13" r="4" />
@@ -145,7 +156,7 @@
           This page will dynamically load pictures from the web, and display them in a cool way!
         </p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Load Images</a>
+          <a href="#" class="btn btn-primary my-2 load-btn" onclick="loadData()">Load Images</a>
           <a href="#" class="btn btn-secondary my-2">Load Secondary Images</a>
         </p>
       </div>
@@ -156,14 +167,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -172,10 +176,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -186,14 +190,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -202,10 +199,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -216,14 +213,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -232,10 +222,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -247,14 +237,7 @@
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -263,10 +246,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -277,14 +260,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -293,10 +269,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -307,14 +283,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -323,10 +292,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -338,14 +307,7 @@
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -354,10 +316,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -368,14 +330,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -384,10 +339,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -398,14 +353,7 @@
           </div>
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  Thumbnail
-                </text>
-              </svg>
+                <img class="card-img-top" src="" alt="Card image cap">
               <div class="card-body">
                 <p class="card-text">
                   This is a wider card with supporting text below as a natural
@@ -414,10 +362,10 @@
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-view btn-sm btn-outline-secondary">
                       View
                     </button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                    <button type="button" class="btn btn-hide btn-sm btn-outline-secondary">
                       Edit
                     </button>
                   </div>
@@ -430,7 +378,25 @@
       </div>
     </div>
   </main>
-
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="" alt="" class="img-modal"> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  
+        </div>
+      </div>
+    </div>
+  </div>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -444,6 +410,70 @@
   </footer>
   <script>
     console.log('fsfdsfvdfvdfgv');
+
+   function loadData() {
+      fetch("http://www.splashbase.co/api/v1/images/search?query=flowers")
+    .then(response => {
+      return response.json();
+      
+    })
+    .then(
+      
+      data => {
+       console.log(data);
+       let imgs = document.querySelectorAll('.card-img-top');
+       
+
+       data.images.forEach(elem=>{
+         for(i =0; i < imgs.length; i++) {
+          imgs[i].src = data.images[i].url;
+         }
+
+       });
+       
+       
+      let btns_view = document.querySelectorAll('.btn-view');
+        btns_view.forEach(btn => {
+        btn.addEventListener('click', function(){
+
+        btn.setAttribute('data-toggle', 'modal');
+        btn.setAttribute('data-target', '#exampleModal');
+        let imgModal = document.querySelector('.img-modal');
+          imgModal.src =  data.images[0].url;
+        })
+        
+      });
+
+
+      let hideBt = document.querySelectorAll('.btn-hide');
+      hideBt.forEach(el => {
+        el.innerHTML = 'Hide';
+        el.addEventListener('click', function(){
+          let imgs = document.querySelectorAll('.card-img-top');
+          imgs.forEach(it => {
+            it.style.display = 'none';
+          })
+        });
+
+
+        
+      let time = document.querySelectorAll('.card-body .text-muted');
+         data.images.forEach(o=>{
+         for(i =0; i < time.length; i++) {
+          time[i].innerHTML = o.id;
+         }
+       })
+    
+      });
+
+      
+     
+       })
+    
+    .catch(err => {
+      console.log(err);
+    });
+    }
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
